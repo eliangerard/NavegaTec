@@ -1,0 +1,23 @@
+{
+  "name": "navegatec",
+  "version": "1.0.0",
+  "description": "An events app for ITCHII",
+  "main": "index.js",
+  "workspaces": [
+    "admin",
+    "client"
+  ],
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliangerard/NavegaTec.git"
+  },
+  "author": "NavegaTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliangerard/NavegaTec/issues"
+  },
+  "homepage": "https://github.com/eliangerard/NavegaTec#readme"
+}
