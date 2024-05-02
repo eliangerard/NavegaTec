@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 import buildings from '../data/buildings';
-import getMapStyle from '../helpers/getMapStyle';
 import { Icon } from '../ui/icons/Icon';
 import { BuildingInfo } from '../components/BuildingInfo';
+import { Link } from 'react-router-dom';
+
 
 export const SchoolMap = () => {
 
@@ -92,6 +93,7 @@ export const SchoolMap = () => {
                     anchor={mapBounds.ne}
                     color='green'
                 />
+                <Link to="/events" className='absolute right-0 bg-white m-2 px-4 py-2 rounded-lg border-2 border-zinc-200'>Eventos</Link>
                 <ZoomControl />
                 <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around w-32 items-center'>
                     <button onClick={() => setStyle((style - 1 + styles.length) % styles.length)} className='w-8'
