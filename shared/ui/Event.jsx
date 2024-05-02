@@ -10,7 +10,7 @@ export const Event = ({ title, icon, date, button, description, type, i, col }) 
                     {type === 'event' && <Icon building={icon} />}
                     {type === 'event' &&
                         <div className='ml-2'>
-                            <h3 className='text-lg'>{title}</h3>
+                            <h3 className='text-lg font-display font-semibold'>{title}</h3>
                             {date && <p className='text-xs '>
                                 {`${new Date(date).toLocaleDateString('es-ES', { weekday: 'long' })}`}
                             </p>}
