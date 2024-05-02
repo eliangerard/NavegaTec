@@ -188,7 +188,7 @@ const events = [
 export const Events = () => {
     return (
         <>
-            <header className='fixed top-0 z-20 bg-white flex justify-center items-center p-4 w-full md:border-b-2 border-black'>
+            <header className='fixed left-0 top-0 z-20 bg-white flex justify-center items-center p-4 w-full md:border-b-2 border-black'>
                 <div className="flex justify-between items-center w-full max-w-screen-xl">
                     <div>
                         <h1 className='text-4xl font-bold font-serif'>Anuncios</h1>
@@ -200,10 +200,10 @@ export const Events = () => {
                     </div>
                 </div>
             </header>
-            <div className='w-full flex flex-col items-center relative pt-24'>
+            <div className='w-full flex flex-col items-center relative'>
                 <Link to="/" className='absolute left-0 top-1/2 bg-white m-2 px-4 py-2 rounded-lg border-2 border-zinc-200 z-20'>Mapa</Link>
                 <div className='max-w-screen-xl w-full relative flex justify-center py-4'>
-                    <div className="grid grid-cols-1 px-4 md:grid-cols-2">
+                    <div className="grid grid-cols-1 px-4 md:grid-cols-2 pt-28 md:pt-24">
                         <div className='w-full grid md:grid-cols-2 gap-4 md:pr-2 auto-rows-auto'>
                             {
                                 events.filter((_, i) => i < events.length / 2).map((event, i) => (
