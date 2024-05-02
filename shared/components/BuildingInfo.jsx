@@ -48,7 +48,7 @@ export const BuildingInfo = ({ show, id, setShow }) => {
                     </div>
                 </div>
                 <div className='w-full md:grow grid md:grid-cols-2 md:gap-4 md:mt-4'>
-                    <div className='bg-white h-fit p-2 rounded-2xl m-4 md:m-0 border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
+                    <div className='bg-white h-fit p-1.5 rounded-2xl m-4 md:m-0 border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
                         <img className='rounded-xl max-h-[300px] md:min-h-[400px] w-full object-cover' src="/mock-building.png" alt="" />
                     </div>
                     <div className='bg-white w-full md:py-4 px-4 rounded-2xl md:border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
