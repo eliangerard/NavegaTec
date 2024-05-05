@@ -1,189 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../ui/icons/Icon'
 import { Event } from '../ui/Event'
-
-const events = [
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "security",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "papers",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "security",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "security",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "papers",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: 'event',
-        title: 'Torneo de Fut',
-        description: 'Va a ganar Baby Fire esta vez, lo prometo enserio!',
-        icon: {
-            type: 'soccer',
-        },
-        date: new Date().setDate(6),
-        button: {
-            text: 'Leer más',
-        }
-    },
-    {
-        type: "administrative",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-    {
-        type: "papers",
-        title: "JUNTA HOY",
-        description: "El departamento de sistemas tendrá junta de 1:00 pm a 2:00 pm, las clases del departamento que entren en ese...",
-        icon: {
-            type: "building",
-            short: "S",
-        },
-    },
-]
+import { events } from '../data/events'
 
 export const Events = () => {
     return (
@@ -201,8 +19,10 @@ export const Events = () => {
                 </div>
             </header>
             <div className='w-full flex flex-col items-center relative'>
-                <Link to="/" className='absolute left-0 top-1/2 bg-white m-2 px-4 py-2 rounded-lg border-2 border-zinc-200 z-20'>Mapa</Link>
-                <div className='max-w-screen-xl w-full relative flex justify-center py-4'>
+                <Link to="/" className='fixed bottom-4 md:left-4 md:top-1/2 w-12 z-20'>
+                    <img src="/mapIcon.svg" alt="" />
+                </Link>
+                <div className='max-w-screen-xl w-full relative flex justify-center py-4 md:px-16'>
                     <div className="grid grid-cols-1 px-4 md:grid-cols-2 pt-28 md:pt-24">
                         <div className='w-full grid md:grid-cols-2 gap-4 md:pr-2 auto-rows-auto'>
                             {
@@ -214,7 +34,7 @@ export const Events = () => {
                         <div className='w-full grid md:grid-cols-2 gap-4 pt-4 md:pt-0 md:pl-2 auto-rows-auto'>
                             {
                                 events.filter((_, i) => i >= events.length / 2).map((event, i) => (
-                                    <Event col={2} key={`event#${i}`} {...event} i={i} />
+                                    <Event col={2} key={`event#${i}`} {...event} i={i + (events.length / 2)} />
                                 ))
                             }
                         </div>
