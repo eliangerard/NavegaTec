@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { SchoolMap } from "../../../shared/components/SchoolMap"
 import { InitializeEvent } from "../components/InitializeEvent";
 import { FillEvent } from "../components/FillEvent";
@@ -22,9 +22,23 @@ export const Add = ({events, setEvents}) => {
 
     const navigate = useNavigate();
 
+    const addOutside = useRef(null);
+
     const [step, setStep] = useState(1);
 
     const [newEvent, setNewEvent] = useState(newEventTemplate);
+
+    useEffect(() => {
+        const handleClick = (e) => {
+            if (addOutside.current && !addOutside.current.contains(e.target)) {
+                navigate('/');
+            }
+        }
+        document.addEventListener('mousedown', handleClick);
+        return () => {
+            document.removeEventListener('mousedown', handleClick);
+        }
+    }, [navigate])
 
     return (
         <>
@@ -43,8 +57,8 @@ export const Add = ({events, setEvents}) => {
                     </div>
                 </Draggable>
             </SchoolMap>
-            {step != 3 ? <div onClick={() => navigate('/')} className={`fixed overflow-hidden top-0 left-0 w-full h-full bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all`}>
-                <div className="fixed flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 h-fit min-w-fit w-9/12 max-w-screen-lg bg-white rounded-2xl border-4 border-black nt-shadow items-center justify-center p-12">
+            {step != 3 ? <div className={`fixed overflow-hidden top-0 left-0 w-full h-full bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all`}>
+                <div ref={addOutside} className="fixed flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 h-fit min-w-fit w-9/12 max-w-screen-lg bg-white rounded-2xl border-4 border-black nt-shadow items-center justify-center p-12 z-30">
 
                     {step == 1 &&
                         <InitializeEvent
