@@ -42,7 +42,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
 
     const handleAdd = () => {
         setEvents(events => [...events, newEvent])
-        fetch('http://localhost:3000/events', {
+        fetch(`${import.meta.env.VITE_SERVER_URL}/events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
