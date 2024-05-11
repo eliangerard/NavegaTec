@@ -13,7 +13,7 @@ export const BuildingInfo = ({ show, id, setShow }) => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/events/building/${id}`)
+        fetch(`${import.meta.env.VITE_SERVER_URL}/events/building/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEvents(data);
