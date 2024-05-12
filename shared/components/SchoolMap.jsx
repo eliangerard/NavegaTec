@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { EventInfo } from './EventInfo';
 
 
-export const SchoolMap = ({ children, disabled, events, moving }) => {
+export const SchoolMap = ({ children, disabled, events = [], moving }) => {
 
     const mapBounds = {
         sw: [
@@ -119,7 +119,7 @@ export const SchoolMap = ({ children, disabled, events, moving }) => {
                         ))
                     }
                     {
-                        events.filter(event => typeof event.where === 'number').map((event, i) => (
+                        events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => (
                             <Marker
                                 style={{ pointerEvents: disabled ? 'none' : 'auto', filter: disabled ? 'grayscale(1)' : '' }}
                                 key={i}
