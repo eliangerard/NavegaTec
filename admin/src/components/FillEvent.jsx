@@ -45,11 +45,13 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
         fetch(`${import.meta.env.VITE_SERVER_URL}/events`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify(newEvent)
         }).then(res => res.json()).then(data => {
             console.log(data);
+            setNewEvent(data);
             if (typeof newEvent.where === 'number')
                 setStep(3);
             else
@@ -65,7 +67,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
             <h1 className="text-5xl text-center font-display font-bold">Aviso</h1>
             <p>¿Qué mostrará tu anuncio?</p>
             <div className="grid grid-cols-11 w-full grow gap-4 py-4">
-                <div className={`col-span-3 w-[200px] ${newEvent.type === 'administrative' ? 'bg-purple' : newEvent.type === 'security' ? 'bg-red' : newEvent.type === 'papers' ? 'bg-green' : newEvent.type === 'warning' ? 'bg-yellow' : 'bg-white'} border-2 w-full border-black rounded-lg nt-shadow p-4 flex flex-col justify-between items-center`}>
+                <div className={`col-span-3 w-[200px] ${newEvent.type === 'administrative' ? 'bg-purple' : newEvent.type === 'security' ? 'bg-red' : newEvent.type === 'papers' ? 'bg-green' : newEvent.type === 'warning' ? 'bg-yellow' : 'bg-white'} border-[3px] w-full border-black rounded-lg nt-shadow-sm p-4 flex flex-col justify-between items-center`}>
                     <div className="flex flex-col items-center">
                         <h2 className="text-3xl font-display font-bold text-center mb-4 text-ellipsis">{newEvent.title}</h2>
                         <p className="text-center">{newEvent.description}</p>
@@ -73,23 +75,23 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                     <div className="flex flex-col items-center">
                         {newEvent.where != '' && <Icon className='w-24 max-h-20' building={newEvent.where} />}
 
-                        <div className="h-6 mt-4">{newEvent.button.length > 0 && <a target="_blank" href={newEvent.link} className="bg-red font-serif rounded-full px-6 h-fit border-2 border-black nt-shadow w-fit">{newEvent.button}</a>}</div>
+                        <div className="h-6 mt-4">{newEvent.button.length > 0 && <a target="_blank" href={newEvent.link} className="bg-red font-serif rounded-full px-6 h-fit border-[3px] border-black nt-shadow-sm w-fit">{newEvent.button}</a>}</div>
                     </div>
                 </div>
                 <div className="col-span-6 flex flex-col w-full">
-                    <input type="text" className="border-2 mb-3 border-black rounded-3xl nt-shadow px-4 h-10 focus:outline-0" placeholder="Título del aviso"
+                    <input type="text" className="border-[3px] mb-3 border-black rounded-3xl nt-shadow-sm px-4 h-10 focus:outline-0" placeholder="Título del aviso"
                         onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
                         value={newEvent.title}
                     />
-                    <textarea className="border-2 mb-3 resize-none border-black rounded-3xl nt-shadow p-4 grow focus:outline-0" type="text" placeholder="Descripción"
+                    <textarea className="border-[3px] mb-3 resize-none border-black rounded-3xl nt-shadow-sm p-4 grow focus:outline-0" type="text" placeholder="Descripción"
                         onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
                         value={newEvent.description}
                     />
-                    <input type="text" className="border-2 mb-3 border-black rounded-3xl nt-shadow px-4 h-10 focus:outline-0" placeholder="Título del botón"
+                    <input type="text" className="border-[3px] mb-3 border-black rounded-3xl nt-shadow-sm px-4 h-10 focus:outline-0" placeholder="Título del botón"
                         onChange={(e) => setNewEvent({ ...newEvent, button: e.target.value })}
                         value={newEvent.button}
                     />
-                    <input type="text" className="border-2 border-black rounded-3xl nt-shadow px-4 h-10 focus:outline-0" placeholder="Enlace al que lleva el botón"
+                    <input type="text" className="border-[3px] border-black rounded-3xl nt-shadow-sm px-4 h-10 focus:outline-0" placeholder="Enlace al que lleva el botón"
                         onChange={(e) => setNewEvent({ ...newEvent, link: e.target.value })}
                         value={newEvent.link}
                     />
@@ -98,7 +100,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                     <p className="my-2">¿Dónde?</p>
                     <div className="relative">
                         {showWherePicker &&
-                            <div ref={wherePicker} className="flex w-96 items-start p-2 max-h-60 overflow-auto mr-4 flex-wrap absolute top-1/2 -translate-y-1/2 right-full bg-purple rounded-md border-2 border-black nt-shadow">
+                            <div ref={wherePicker} className="flex w-96 items-start p-2 max-h-60 overflow-auto mr-4 flex-wrap absolute top-1/2 -translate-y-1/2 right-full bg-purple rounded-md border-[3px] border-black nt-shadow">
                                 <h2 className="font-display font-bold text-center w-full text-xl pb-2">¿Será fuera de un edificio?</h2>
                                 {
                                     [...Array(6)].map((_, i) =>
@@ -115,7 +117,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                                 ))}
                             </div>
                         }
-                        <button onClick={() => setShowWherePicker(show => !show)} className="flex items-center justify-center bg-purple h-16 w-16 rounded-2xl border-2 border-black border-dashed">
+                        <button onClick={() => setShowWherePicker(show => !show)} className="flex items-center justify-center bg-purple h-16 w-16 rounded-2xl border-[3px] border-black border-dashed">
                             {
                                 newEvent.where != '' && <Icon building={newEvent.where} />
                             }
@@ -125,18 +127,18 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                     <div className="relative">
                         {showDatePicker &&
                             <div ref={datePicker}>
-                                <DayPicker className="absolute top-1/2 -translate-y-1/2 right-full bg-white rounded-xl border-2 border-black nt-shadow p-2 select-none" locale={es}
+                                <DayPicker className="absolute top-1/2 -translate-y-1/2 right-full bg-white rounded-xl border-[3px] border-black nt-shadow-sm p-2 select-none" locale={es}
                                     mode="single"
                                     onSelect={(date) => setNewEvent({ ...newEvent, when: date })}
                                     selected={newEvent.when}
                                     modifiersClassNames={{
-                                        selected: 'bg-yellow rounded-full !border-1 border-black nt-shadow h-8 w-8 m-1',
+                                        selected: 'bg-yellow rounded-full !border-1 border-black nt-shadow-sm h-8 w-8 m-1',
                                         disabled: 'bg-red',
                                     }}
                                 />
                             </div>
                         }
-                        <button className="bg-purple h-16 w-16 rounded-md border-2 border-black px-2 font-serif text-xl"
+                        <button className="bg-purple h-16 w-16 rounded-md border-[3px] border-black px-2 font-serif text-xl"
                             onClick={() => setShowDatePicker(show => !show)}
                         >
                             <p className="leading-none text-center min-w-fit w-1/2">{
@@ -156,7 +158,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                         </button>
                     </div>
                     <p className="my-2">Imágen</p>
-                    <button className="bg-purple h-16 w-16 rounded-xl border-2 border-black"
+                    <button className="bg-purple h-16 w-16 rounded-xl border-[3px] border-black"
                         onClick={() => imgInput.current.click()}
                     >
                         +
@@ -173,7 +175,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                             reader.readAsDataURL(file);
                         }}
                     />
-                    <button className="bg-red rounded-full px-4 h-fit border-2 border-black nt-shadow w-fit mt-4"
+                    <button className="bg-red rounded-full px-4 h-fit border-[3px] border-black nt-shadow-sm w-fit mt-4"
                         onClick={handleAdd}
                     >Añadir</button>
                 </div>
