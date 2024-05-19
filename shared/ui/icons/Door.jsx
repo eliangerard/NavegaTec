@@ -1,0 +1,34 @@
+export const Door = ({ className }) => {
+    return (
+        <svg className={className} viewBox="0 0 82 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8.81836" y="9.00195" width="69" height="104" rx="16" stroke="black" strokeWidth="8" />
+            <rect x="0.818359" y="0.00195312" width="77" height="112" rx="20" fill="#C1BEFA" />
+            <rect x="4.81836" y="4.00195" width="69" height="104" rx="16" stroke="black" strokeWidth="8" />
+            <path d="M0.818359 15.5824C0.818359 8.297 8.35904 3.45684 14.9827 6.49071L51.9827 23.4381C55.5384 25.0667 57.8184 28.6188 57.8184 32.5298V122.423C57.8184 129.709 50.2777 134.549 43.654 131.515L6.65405 114.568C3.09832 112.939 0.818359 109.387 0.818359 105.476V15.5824Z" fill="#F9886D" />
+            <path d="M4.81836 15.5824C4.81836 11.2111 9.34277 8.30706 13.317 10.1274L50.3169 27.0747C52.4504 28.0519 53.8184 30.1832 53.8184 32.5298V122.423C53.8184 126.795 49.2939 129.699 45.3198 127.878L8.31977 110.931C6.18633 109.954 4.81836 107.823 4.81836 105.476V15.5824Z" stroke="black" strokeWidth="8" />
+            <path d="M4.81836 15.5824C4.81836 11.2111 9.34277 8.30706 13.317 10.1274L50.3169 27.0747C52.4504 28.0519 53.8184 30.1832 53.8184 32.5298V122.423C53.8184 126.795 49.2939 129.699 45.3198 127.878L8.31977 110.931C6.18633 109.954 4.81836 107.823 4.81836 105.476V15.5824Z" stroke="black" strokeWidth="8" />
+            <circle cx="37.0752" cy="82.0049" r="11" fill="#FFDB58" stroke="black" strokeWidth="8" />
+            <defs>
+                <filter id="filter0_d_263_525" x="0.818359" y="0.00195312" width="81" height="112" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset dx="4" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_263_525" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_263_525" result="shape" />
+                </filter>
+                <filter id="filter1_d_263_525" x="0.818359" y="5.57031" width="61" height="126.865" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset dx="4" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_263_525" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_263_525" result="shape" />
+                </filter>
+            </defs>
+        </svg>
+
+    )
+}
