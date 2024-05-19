@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { EventInfo } from './EventInfo';
 
 
-export const SchoolMap = ({ children, disabled, events = [], moving }) => {
+export const SchoolMap = ({ children, disabled, events = [], moving, display = true }) => {
 
     const mapBounds = {
         sw: [
@@ -66,12 +66,11 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
             console.error("Geolocation is not supported by this browser.");
         }
     }
-
     return (
         <>
-            <EventInfo id={selectedEvent} show={showEvent} setShow={setShowEvent} />
-            <BuildingInfo id={selectedBuilding} show={showPopup} setShow={setShowPopup} />
-            <div className="w-full h-full overflow-hidden">
+            <div className="relative w-full h-full overflow-hidden">
+                <EventInfo id={selectedEvent} show={showEvent} setShow={setShowEvent} />
+                <BuildingInfo id={selectedBuilding} show={showPopup} setShow={setShowPopup} />
                 <Map
                     provider={styles[style]}
                     defaultCenter={center}
@@ -93,9 +92,9 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
                         )
                     }}
                 >
-                    {children}
+                    {display && children}
                     {
-                        buildings.map((building, i) => (
+                        display && buildings.map((building, i) => (
                             <Marker
                                 style={{ pointerEvents: disabled ? 'none' : 'auto', filter: disabled ? 'grayscale(1)' : '' }}
                                 key={i}
@@ -119,7 +118,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
                         ))
                     }
                     {
-                        events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => (
+                        display && events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => (
                             <Marker
                                 style={{ pointerEvents: disabled ? 'none' : 'auto', filter: disabled ? 'grayscale(1)' : '' }}
                                 key={i}
@@ -138,10 +137,6 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
                             </Marker>
                         ))
                     }
-                    <Marker
-                        anchor={mapBounds.sw}
-                        color='red'
-                    />
                     {
                         location && <Marker
                             anchor={location}
@@ -150,11 +145,11 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
                             <div className='bg-blue-400 border-2 border-black nt-shadow rounded-full h-4 w-4'></div>
                         </Marker>
                     }
-                    <Link to="/events" className='absolute right-0 w-12 m-4'>
+                    {display && <Link to="/events" className='absolute right-0 w-12 m-4'>
                         <img src="/annIcon.svg" alt="" />
-                    </Link>
-                    <ZoomControl />
-                    <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around w-32 items-center'>
+                    </Link>}
+                    {display && <ZoomControl />}
+                    {display && <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around w-32 items-center'>
                         <button onClick={() => setStyle((style - 1 + styles.length) % styles.length)} className='w-8'
                         >{'<'}</button>
                         <p className='w-8 text-center'>{style}</p>
@@ -162,7 +157,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving }) => {
                             onClick={() => setStyle((style + 1) % styles.length)}
                         >{'>'}</button>
                         <button onClick={handleLocation}>Ubi</button>
-                    </div>
+                    </div>}
                 </Map >
             </div>
         </>
