@@ -24,13 +24,7 @@ export const Login = () => {
                     /> */}
                             <a
                                 className='flex border-zinc-400 border-2 p-3 text-center font-medium items-center mt-8 mb-4'
-                                href='https://login.microsoftonline.com/4bc0e4bd-b054-4eb1-a4d3-ef13dc805095/oauth2/v2.0/authorize?
-                        client_id=a3a4079a-bf27-42d2-99c0-7a30e2739694
-                        &scope=a3a4079a-bf27-42d2-99c0-7a30e2739694/.default offline_access
-                        &redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fredirect%2F
-                        &response_type=code
-                        &response_mode=query
-                        '
+                                href={`https://login.microsoftonline.com/4bc0e4bd-b054-4eb1-a4d3-ef13dc805095/oauth2/v2.0/authorize?client_id=a3a4079a-bf27-42d2-99c0-7a30e2739694&scope=a3a4079a-bf27-42d2-99c0-7a30e2739694/.default offline_access&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=code&response_mode=query`}
                             >
                                 <img className="w-8" src={msLogo} alt="" />
                                 <p className="text-zinc-500 px-3">Ingresa con tu cuenta institucional</p>
