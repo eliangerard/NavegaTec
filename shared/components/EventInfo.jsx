@@ -14,6 +14,7 @@ export const EventInfo = ({ show, id, setShow }) => {
     });
 
     useEffect(() => {
+        if (!id) return;
         fetch(`${import.meta.env.VITE_SERVER_URL}/events/${id}`)
             .then(res => res.json())
             .then(data => {
@@ -41,7 +42,7 @@ export const EventInfo = ({ show, id, setShow }) => {
     }, [container, setShow]);
 
     return (
-        <div className={`${show ? 'absolute' : 'hidden'} overflow-hidden top-0 left-0 w-full h-full bg-white md:bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all`}>
+        <div className={`${show ? 'absolute' : 'hidden'} overflow-hidden top-0 left-0 w-full h-full bg-white md:bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all animate-fade-fast`}>
             <div ref={container} className="flex flex-col z-50 h-fit w-full h-full md:h-fit md:w-4/5 lg:w-3/5">
                 <div className="flex justify-center md:justify-between items-center bg-white md:border-2 md:border-black md:rounded-xl md:py-4 px-4 shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mt-8 md:mt-0">
                     <div className="hidden md:block w-12 flex items-center justify-center">
@@ -65,7 +66,7 @@ export const EventInfo = ({ show, id, setShow }) => {
                     }
                     <div className='bg-white w-full md:py-4 px-4 rounded-2xl md:border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
                         <h4 className='font-display font-semibold text-2xl my-2'>Descripción</h4>
-                        <p>{event.description}</p>
+                        <p className='text-pretty hyphens-auto'>{event.description}</p>
                     </div>
                 </div>
                 <div className='flex flex-col fixed bottom-0 w-full bg-white items-center'>

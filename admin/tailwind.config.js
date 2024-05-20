@@ -12,11 +12,23 @@ export default {
       'display': ['Montserrat Alternates'],
     },
     extend: {
+      animation: {
+        fade: 'fadeIn .5s ease-in-out',
+        "fade-fast": 'fadeIn .25s ease-in-out',
+        "fade-out": 'fadeOut .25s ease-in-out',
+      },
+
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
       colors: {
         "yellow": "#FFDB58",
         "purple": "#C1BEFA",
-        "green" : "#7FBC8C",
-        "red" : "#F9886D",
+        "green": "#7FBC8C",
+        "red": "#F9886D",
       }
     },
   },

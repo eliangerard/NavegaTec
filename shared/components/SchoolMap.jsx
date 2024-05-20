@@ -68,7 +68,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
     }
     return (
         <>
-            <div className="relative w-full h-full overflow-hidden">
+            <div className="relative w-full h-full overflow-hidden animate-fade">
                 <EventInfo id={selectedEvent} show={showEvent} setShow={setShowEvent} />
                 <BuildingInfo id={selectedBuilding} show={showPopup} setShow={setShowPopup} />
                 <Map
@@ -107,19 +107,20 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                                     handlePopup(building.id)
                                 }}
                             >
-                                <div className="relative">
+                                <div className="relative animate-fade">
                                     <div className="absolute translate-y-1/2 min-w-12">
-                                        <Icon building={building}
-                                        // style={{ transform: `scale(${zoom <= 17 ? (1 * Math.pow((zoom / 17), 6)) : 1})` }}
-                                        />
+                                        <Icon building={building} />
                                     </div>
                                 </div>
                             </Marker>
                         ))
                     }
                     {
-                        display && events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => (
-                            <Marker
+                        display && events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => {
+                            console.log(event._id, moving);
+                            if(event._id == moving) return null;
+
+                            return <Marker
                                 style={{ pointerEvents: disabled ? 'none' : 'auto', filter: disabled ? 'grayscale(1)' : '' }}
                                 key={i}
                                 width={50}
@@ -130,12 +131,12 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                                 }}
                             >
                                 <div className="relative">
-                                    <div className="absolute translate-y-1/2 min-w-12">
+                                    <div className="absolute translate-y-1/2 min-w-12 animate-fade">
                                         <Icon building={event.where} />
                                     </div>
                                 </div>
                             </Marker>
-                        ))
+                        })
                     }
                     {
                         location && <Marker
