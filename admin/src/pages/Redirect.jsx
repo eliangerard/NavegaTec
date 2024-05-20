@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
+import { SquareLoader } from "react-spinners";
 
 export const Redirect = () => {
 	const { search } = useLocation();
@@ -25,7 +26,9 @@ export const Redirect = () => {
 		<>
 			{
 				loading ?
-					<h1>Loading...</h1>
+					<div className="w-full h-full flex items-center justify-center">
+						<SquareLoader color="#000" size={50} loading={loading} />
+					</div>
 					:
 					<Navigate to="/" />
 			}
