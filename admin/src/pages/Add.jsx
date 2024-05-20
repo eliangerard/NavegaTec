@@ -43,37 +43,41 @@ export const Add = ({ events, setEvents }) => {
     }, [navigate])
 
     const handleUpdateAnchor = () => {
-        api(`events/${newEvent._id}`, 'PATCH', {anchor: newEvent.anchor}).then(() => {
+        api(`events/${newEvent._id}`, 'PATCH', { anchor: newEvent.anchor }).then(() => {
             navigate('/');
         })
     }
 
     return (
         <>
-            {step != 3 ? <div className={`fixed overflow-hidden top-0 left-0 w-full h-full bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all`}>
-                <div ref={addOutside} className="fixed flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 h-fit min-w-fit w-9/12 max-w-screen-lg bg-white rounded-2xl border-4 border-black nt-shadow items-center justify-center p-12 z-30">
-                    {step == 1 &&
-                        <InitializeEvent
-                            setStep={setStep}
-                            setNewEvent={setNewEvent}
-                        />}
-                    {step == 2 &&
-                        <FillEvent
-                            setStep={setStep}
-                            newEvent={newEvent}
-                            setNewEvent={setNewEvent}
-                            setEvents={setEvents}
-                        />}
+            {step != 3 ?
+                <>
+                    <SchoolMap events={events} setEvents={setEvents} display={false} />
+                    <div className={`fixed overflow-hidden top-0 left-0 w-full h-full bg-black/25 flex items-center justify-center z-20 duration-[200ms] transition-all`}>
+                        <div ref={addOutside} className="fixed flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 h-fit min-w-fit w-9/12 max-w-screen-lg bg-white rounded-2xl border-4 border-black nt-shadow items-center justify-center p-12 z-30">
+                            {step == 1 &&
+                                <InitializeEvent
+                                    setStep={setStep}
+                                    setNewEvent={setNewEvent}
+                                />}
+                            {step == 2 &&
+                                <FillEvent
+                                    setStep={setStep}
+                                    newEvent={newEvent}
+                                    setNewEvent={setNewEvent}
+                                    setEvents={setEvents}
+                                />}
 
-                </div>
-            </div > :
+                        </div>
+                    </div >
+                </> :
                 // <Home events={events} newEvent={newEvent} />
-                <SchoolMap events={events} setEvents={setEvents} disabled>
+                <SchoolMap events={events} setEvents={setEvents} disabled moving={newEvent._id}>
                     <div className="absolute top-4 left-1/2 -translate-x-1/2 flex">
                         <div className="rounded-full border-[3px] border-black bg-white nt-shadow-sm px-6 py-2">
                             <p className="font-serif text-lg font-medium">¡Ubica el ícono donde quieras!</p>
                         </div>
-                        <button className="ml-4 rounded-full border-[3px] border-black bg-white nt-shadow-sm px-6 py-2 font-serif font-medium text-lg"
+                        <button className="ml-4 rounded-full border-[3px] border-black bg-green nt-shadow-sm px-6 py-2 font-serif font-medium text-lg"
                             onClick={handleUpdateAnchor}
                         >Guardar</button>
                     </div>
@@ -85,7 +89,7 @@ export const Add = ({ events, setEvents }) => {
                         width={50}
                     >
                         <div className="relative">
-                            <div className="absolute -translate-x-1/2 -translate-y-1/2">
+                            <div className="absolute -translate-x-1/2 -translate-y-1/2 animate-pulse">
                                 <Icon building={newEvent.where} />
                             </div>
                         </div>
