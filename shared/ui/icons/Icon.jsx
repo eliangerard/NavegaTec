@@ -18,11 +18,11 @@ export const Icon = ({ building, className, style }) => {
             {
                 typeof building !== "object" ?
                     (<>
-                        {building == 1 && <Generic className={'w-10 h-10 m-2' + (className ? className : '') + " fill-yellow"} />}
-                        {building == 2 && <Generic className={'w-10 h-10 m-2' + (className ? className : '') + " fill-green"} />}
-                        {building == 3 && <Generic className={'w-10 h-10 m-2' + (className ? className : '') + " fill-purple"} />}
-                        {building == 4 && <Generic className={'w-10 h-10 m-2' + (className ? className : '') + " fill-red"} />}
-                        {building == 5 && <Generic className={'w-10 h-10 m-2' + (className ? className : '') + " fill-white"} />}
+                        {building == 1 && <Generic className={className} color="fill-yellow" />}
+                        {building == 2 && <Generic className={className} color="fill-green" />}
+                        {building == 3 && <Generic className={className} color="fill-purple" />}
+                        {building == 4 && <Generic className={className} color="fill-red" />}
+                        {building == 5 && <Generic className={className} color="fill-white" />}
                         {building == 6 && <Warning className={className} />}
                     </>)
                     :
