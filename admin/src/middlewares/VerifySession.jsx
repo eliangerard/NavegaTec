@@ -41,7 +41,7 @@ export const VerifySession = () => {
             <Route path="/" element={loading ?
                 <>
                     <SchoolMap display={false}/>
-                    <div className="fixed top-0 left-0 w-full h-full z-50 bg-black/25 flex items-center justify-center">
+                    <div className="fixed animate-fade top-0 left-0 w-full h-full z-50 bg-black/25 flex items-center justify-center">
                         <SquareLoader color="#000" size={50} loading={loading} />
                     </div>
                 </>
