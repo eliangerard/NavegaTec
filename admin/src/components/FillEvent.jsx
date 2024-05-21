@@ -85,7 +85,7 @@ export const FillEvent = ({ setStep, newEvent, setNewEvent, setEvents }) => {
                     <SquareLoader color="#000" size={50} loading={loading} />
                 </div>}
                 <div className={`grid grid-cols-11 w-full grow gap-4 py-4 transition-all ${loading ? 'opacity-25' : ''}`}>
-                    <div className={`col-span-3 w-[220px] ${newEvent.type === 'administrative' ? 'bg-purple' : newEvent.type === 'security' ? 'bg-red' : newEvent.type === 'papers' ? 'bg-green' : newEvent.type === 'warning' ? 'bg-yellow' : 'bg-white'} border-[3px] w-full border-black rounded-lg nt-shadow-sm p-4 flex flex-col justify-between items-center`}>
+                    <div className={`w-[220px] col-span-3 ${newEvent.type === 'administrative' ? 'bg-purple' : newEvent.type === 'security' ? 'bg-red' : newEvent.type === 'papers' ? 'bg-green' : newEvent.type === 'warning' ? 'bg-yellow' : 'bg-white'} border-[3px] border-black rounded-lg nt-shadow-sm p-4 flex flex-col justify-between items-center`}>
                         <div className="flex flex-col items-center w-full">
                             <h2 className="text-3xl font-display font-bold text-center text-ellipsis w-full truncate h-8">{newEvent.title}</h2>
                             <p className="text-center h-[140px] w-full line-clamp-6 my-2 text-pretty hyphens-auto">{newEvent.description}</p>
