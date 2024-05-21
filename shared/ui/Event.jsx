@@ -10,9 +10,12 @@ export const Event = ({ _id, title, where, when, button, description, type, i, c
         <>
             {showInfo && <EventInfo show={showInfo} setShow={setShowInfo} id={_id} />}
             <div
-                className={`flex flex-col justify-between ${(col === 1 ? (i % 3 == 0 || i == 0) : ((i - 1) % 3 == 0)) ? 'sm:col-span-2 min-h-52' : 'col-span-1 min-h-80'} ${type === 'administrative' ? 'bg-purple' : type === 'security' ? 'bg-red' : type === 'papers' ? 'bg-green' : ''} p-4 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black`}
-                onClick={() => setShowInfo(true)}
-                >
+                className={`flex flex-col justify-between ${(col === 1 ? (i % 3 == 0 || i == 0) : ((i - 1) % 3 == 0)) ? 'sm:col-span-2 min-h-52' : 'col-span-1 min-h-80'} ${type === 'administrative' ? 'bg-purple' : type === 'security' ? 'bg-red' : type === 'papers' ? 'bg-green' : 'bg-white'} p-4 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black`}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setShowInfo(true);
+                }}
+            >
                 <div>
                     <div className="flex">
                         {type === 'events' && <Icon building={where} />}
@@ -43,8 +46,12 @@ export const Event = ({ _id, title, where, when, button, description, type, i, c
                     </button>}
                     {when &&
                         <div className="justify-self-end">
-                            <p className='text-center'>vie</p>
-                            <div className='rounded-full bg-purple border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] h-8 w-8 flex items-center justify-center font-serif'>6</div>
+                            <p className='text-center'>{
+                                `${new Date(when).toLocaleDateString('es-ES', { weekday: 'long' }).substring(0,3)}`
+                            }</p>
+                            <div className='rounded-full bg-purple border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] h-8 w-8 flex items-center justify-center font-serif'>
+                                {new Date(when).getDate()}
+                            </div>
                         </div>
                     }
                 </div>
