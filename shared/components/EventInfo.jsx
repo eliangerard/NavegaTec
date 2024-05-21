@@ -14,14 +14,26 @@ export const EventInfo = ({ show, id, setShow }) => {
     });
 
     useEffect(() => {
-        if (!id) return;
+        if (!show) {
+            setEvent({
+                title: '',
+                description: '',
+                img: '',
+                where: null,
+                when: ''
+            })
+        }
+    }, [show]);
+
+    useEffect(() => {
+        if (!id || !show) return;
         fetch(`${import.meta.env.VITE_SERVER_URL}/events/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEvent(data)
                 setBuilding(data.where)
             })
-    }, [id]);
+    }, [id, show]);
 
     const container = useRef(null);
 
@@ -50,7 +62,7 @@ export const EventInfo = ({ show, id, setShow }) => {
                     </div>
                     <div className='text-center'>
                         <h3 className='font-display font-bold text-4xl'>{event.title}</h3>
-                        {event.when !== null && <p>{new Date(event.when).toLocaleDateString('es-mx')}</p>}
+                        {event.when !== null && event.when !== '' && <p>{new Date(event.when).toLocaleDateString('es-mx')}</p>}
                     </div>
                     <div className='hidden md:block'>
                         <Icon building={event.where} />
