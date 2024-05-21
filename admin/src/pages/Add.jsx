@@ -4,7 +4,7 @@ import { InitializeEvent } from "../components/InitializeEvent";
 import { FillEvent } from "../components/FillEvent";
 import { Draggable } from "pigeon-maps";
 import { Icon } from "../../../shared/ui/icons/Icon";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Home } from "./Home";
 import { api } from "../helpers/api";
 
@@ -71,9 +71,10 @@ export const Add = ({ events, setEvents }) => {
                         </div>
                     </div >
                 </> :
+                typeof newEvent.where == "number" ? 
                 // <Home events={events} newEvent={newEvent} />
                 <SchoolMap events={events} setEvents={setEvents} disabled moving={newEvent._id}>
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 flex">
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 flex z-50">
                         <div className="rounded-full border-[3px] border-black bg-white nt-shadow-sm px-6 py-2">
                             <p className="font-serif text-lg font-medium">¡Ubica el ícono donde quieras!</p>
                         </div>
@@ -95,6 +96,7 @@ export const Add = ({ events, setEvents }) => {
                         </div>
                     </Draggable>
                 </SchoolMap>
+                : <Navigate to="/" />
             }
         </>
     )
