@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { SquareLoader } from "react-spinners";
 
 export const Redirect = () => {
 	const { search } = useLocation();
+	const navigate = useNavigate();
 	const params = new URLSearchParams(search);
 	const code = params.get("code");
 	const { setUser } = useContext(UserContext);
@@ -13,7 +14,10 @@ export const Redirect = () => {
 
 	useEffect(() => {
 		fetch(`${import.meta.env.VITE_SERVER_URL}/auth/token?code=${code}&redirectUri=${import.meta.env.VITE_REDIRECT_URI}`)
-			.then(res => res.json())
+			.then(res => {
+				if(res.status === 401) return navigate(`/?error=${encodeURI("Usuario no autorizado, se notificará al administrador")}`);
+				return res.json();
+			})
 			.then(data => {
 				localStorage.setItem("token", data.access_token);
 				localStorage.setItem("refresh", data.refresh_token);
