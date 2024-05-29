@@ -2,11 +2,14 @@ import { useContext } from "react";
 import { SchoolMap } from "../../../shared/components/SchoolMap"
 import { UserContext } from "../context/UserProvider";
 import msLogo from '../assets/ms.svg'
+import { useParams } from "react-router-dom";
 
 export const Login = () => {
 
     const { user } = useContext(UserContext);
-    console.log("EA", user);
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    console.log(error);
 
     return (
 
@@ -19,7 +22,7 @@ export const Login = () => {
                             <img className="absolute p-6 z-20" src="/icon.png" alt="" />
                         </div>
                         <div className="p-12 w-full flex flex-col items-center">
-                            <div>
+                            <div className="w-[350px]">
                                 <h1 className='font-serif text-5xl font-bold'>Inicia Sesión</h1>
                                 <div className='w-full items-center'>
                                     <a
@@ -30,6 +33,7 @@ export const Login = () => {
                                         <p className="text-zinc-500 text-sm px-3">Ingresa con tu correo institucional</p>
                                     </a>
                                 </div>
+                                {error && <p className='text-red w-full text-center'>{error}</p>}
                             </div>
                         </div>
                     </div>
