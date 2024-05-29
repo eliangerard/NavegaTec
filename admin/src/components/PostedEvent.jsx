@@ -22,7 +22,7 @@ export const PostedEvent = ({ event: e, refresh }) => {
     }
 
     return (
-        <div draggable className={`animate-fade h-[400px] w-[230px] flex flex-col m-2 my-4 ${(loading || !active) ? 'opacity-50' : ''} transition-all`}>
+        <div draggable className={`animate-fade h-[410px] w-[230px] flex flex-col m-2 my-4 ${(loading || !active) ? 'opacity-50' : ''} transition-all`}>
             <div className="py-1 border-4 border-b-0 border-black rounded-t-3xl nt-shadow mx-6 flex justify-center items-center">
                 <button className="rounded-full border-[3px] border-black p-1 h-8 flex items-center justify-between"
                     onClick={handleActive}
@@ -38,7 +38,7 @@ export const PostedEvent = ({ event: e, refresh }) => {
                 </button>
             </div>
             <div className={`col-span-4 ${e.type === 'administrative' ? 'bg-purple' : e.type === 'security' ? 'bg-red' : e.type === 'papers' ? 'bg-green' : e.type === 'warning' ? 'bg-yellow' : 'bg-white'} border-4 grow max-w-1/2 border-black rounded-lg nt-shadow p-4 flex flex-col justify-between items-center`}>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center w-full">
                     <h2 className="text-3xl font-display font-bold text-center text-ellipsis w-full truncate h-8">{e.title}</h2>
                     <p className="text-center h-[140px] w-full line-clamp-6 my-2 text-pretty hyphens-auto">{e.description}</p>
                 </div>
