@@ -10,7 +10,7 @@ export const Event = ({ _id, title, where, when, button, description, type, i, c
         <>
             {showInfo && <EventInfo show={showInfo} setShow={setShowInfo} id={_id} />}
             <div
-                className={`flex flex-col justify-between ${(col === 1 ? (i % 3 == 0 || i == 0) : ((i - 1) % 3 == 0)) ? 'sm:col-span-2 min-h-52' : 'col-span-1 min-h-80'} ${type === 'administrative' ? 'bg-purple' : type === 'security' ? 'bg-red' : type === 'papers' ? 'bg-green' : 'bg-white'} p-4 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black`}
+                className={`animate-fade flex flex-col justify-between ${(col === 1 ? (i % 3 == 0 || i == 0) : ((i - 1) % 3 == 0)) ? 'sm:col-span-2 h-[310px]' : 'col-span-1 h-[380px]'} ${type === 'administrative' ? 'bg-purple' : type === 'security' ? 'bg-red' : type === 'papers' ? 'bg-green' : 'bg-white'} p-4 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black`}
                 onClick={(e) => {
                     e.stopPropagation();
                     setShowInfo(true);
@@ -28,8 +28,8 @@ export const Event = ({ _id, title, where, when, button, description, type, i, c
                             </div>
                         }
                     </div>
-                    {type !== 'events' && <h3 className='text-xl font-bold font-display text-center'>{title}</h3>}
-                    <p className={`my-1 text-ellipsis`}>
+                    {type !== 'events' && <h3 className='text-3xl font-display font-bold text-center text-ellipsis w-full truncate h-8'>{title}</h3>}
+                    <p className={`${(col === 1 ? (i % 3 == 0 || i == 0) : ((i - 1) % 3 == 0)) ? 'max-h-[75px] text-left line-clamp-3' : 'h-[140px] text-center line-clamp-6'} w-full my-2 text-pretty hyphens-auto`}>
                         {description}
                     </p>
                 </div>
@@ -45,7 +45,7 @@ export const Event = ({ _id, title, where, when, button, description, type, i, c
                         </p>
                     </button>}
                     {when &&
-                        <div className="justify-self-end">
+                        <div className="justify-self-end flex flex-col items-center">
                             <p className='text-center'>{
                                 `${new Date(when).toLocaleDateString('es-ES', { weekday: 'long' }).substring(0,3)}`
                             }</p>
