@@ -35,14 +35,14 @@ export const Events = () => {
                 </Link>
                 <div className='max-w-screen-xl w-full relative flex justify-center py-4 md:px-16'>
                     <div className="grid grid-cols-1 px-4 lg:grid-cols-2 pt-28 md:pt-24">
-                        <div className='w-full grid md:grid-cols-2 gap-4 lg:pr-2 auto-rows-auto'>
+                        <div className='w-full h-fit grid md:grid-cols-2 gap-4 lg:pr-2'>
                             {
                                 events.filter((_, i) => i <= events.length / 2).map((event, i) => (
                                     <Event col={1} key={`event#${i}`} {...event} i={i} />
                                 ))
                             }
                         </div>
-                        <div className='w-full grid md:grid-cols-2 gap-4 pt-4 lg:pt-0 lg:pl-2 auto-rows-auto'>
+                        <div className='w-full h-fit grid md:grid-cols-2 gap-4 pt-4 lg:pt-0 lg:pl-2'>
                             {
                                 events.filter((_, i) => i > events.length / 2).map((event, i) => (
                                     <Event col={2} key={`event#${i}`} {...event} i={i + (events.length / 2)} />
