@@ -55,7 +55,7 @@ export const Home = () => {
                     <h1 className="font-serif text-4xl text-center w-full font-bold mt-4">Editorial</h1>
                     {/* <button className="w-28 font-serif bg-white rounded-full border-2 nt-shadow border-black">Guardar</button> */}
                 </div>
-                <p className="my-2 text-lg">Arrastra, activa, desactiva o elimina algún anuncio.</p>
+                <p className="my-2 text-lg">Activa, desactiva, edita o elimina algún anuncio.</p>
                 <div className="overflow-y-scroll grow pb-2">
                     {loading ?
                         <div className="w-full h-full p-8 flex items-center justify-center">
