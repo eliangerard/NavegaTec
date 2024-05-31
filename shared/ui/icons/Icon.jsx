@@ -12,7 +12,7 @@ import { Soccer7 } from "./Soccer7"
 import { Statue } from "./Statue"
 import { Warning } from "./Warning"
 
-export const Icon = ({ building, className, style }) => {
+export const Icon = ({ building, className, style, fontSize }) => {
     return (
         <>
             {
@@ -28,7 +28,7 @@ export const Icon = ({ building, className, style }) => {
                     :
                     <>
                         {
-                            building?.type === 'building' && <Building content={building?.short} className={className} style={style} />
+                            building?.type === 'building' && <Building content={building?.short} className={className} style={style} fontSize={fontSize} />
                         }
                         {
                             building?.type === 'gym' && <Gym className={className} style={style} />
