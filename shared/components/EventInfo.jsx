@@ -90,7 +90,7 @@ export const EventInfo = ({ show, popup = false, id, setShow }) => {
                                 :
                                 <>
                                     <h4 className='font-display font-semibold text-2xl my-2'>{event.description ? 'Descripción' : ''}</h4>
-                                    <div className='overflow-y-auto grow'>
+                                    <div className='md:overflow-y-auto grow'>
                                         <p className='text-pretty hyphens-auto'>{event.description}</p>
                                     </div>
                                 </>
