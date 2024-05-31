@@ -69,7 +69,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
     return (
         <>
             <div className="relative w-full h-full overflow-hidden animate-fade">
-                <EventInfo id={selectedEvent} show={showEvent} setShow={setShowEvent} />
+                <EventInfo popup id={selectedEvent} show={showEvent} setShow={setShowEvent} />
                 <BuildingInfo id={selectedBuilding} show={showPopup} setShow={setShowPopup} />
                 <Map
                     provider={styles[style]}
@@ -118,7 +118,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                     {
                         display && events.length > 0 && events.filter(event => typeof event.where === 'number').map((event, i) => {
                             console.log(event._id, moving);
-                            if(event._id == moving) return null;
+                            if (event._id == moving) return null;
 
                             return <Marker
                                 style={{ pointerEvents: disabled ? 'none' : 'auto', filter: disabled ? 'grayscale(1)' : '' }}
@@ -150,14 +150,10 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                         <img src="/annIcon.svg" alt="" />
                     </Link>}
                     {display && <ZoomControl />}
-                    {display && <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around w-32 items-center'>
-                        <button onClick={() => setStyle((style - 1 + styles.length) % styles.length)} className='w-8'
-                        >{'<'}</button>
-                        <p className='w-8 text-center'>{style}</p>
-                        <button className='w-8'
-                            onClick={() => setStyle((style + 1) % styles.length)}
-                        >{'>'}</button>
-                        <button onClick={handleLocation}>Ubi</button>
+                    {display && <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around px-3 items-center'>
+                        <button onClick={handleLocation}>
+                            <div className='bg-blue-400 border-2 border-black nt-shadow-sm rounded-full h-4 w-4'></div>
+                        </button>
                     </div>}
                 </Map >
             </div>
