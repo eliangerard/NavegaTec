@@ -7,6 +7,7 @@ import { UserContext } from "../context/UserProvider"
 import { Home } from "../pages/Home"
 import { SquareLoader } from "react-spinners"
 import { SchoolMap } from "../../../shared/components/SchoolMap"
+import { Edit } from "../pages/Edit"
 
 export const VerifySession = () => {
 
@@ -65,6 +66,14 @@ export const VerifySession = () => {
                     </div>
                 </>
                 : user.logged ? <Add events={events} setEvents={setEvents} /> : <Navigate to={'/'} />} />
+            <Route path="/edit/:id" element={loading ?
+                <>
+                    <SchoolMap display={false} />
+                    <div className="fixed animate-fade top-0 left-0 w-full h-full z-50 bg-black/25 flex items-center justify-center">
+                        <SquareLoader color="#000" size={50} loading={loading} />
+                    </div>
+                </>
+                : user.logged ? <Edit /> : <Navigate to={'/'} />} />
         </Routes>
     )
 }
