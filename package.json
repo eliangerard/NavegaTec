@@ -8,7 +8,8 @@
     "client"
   ],
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "npx vite build ./client --outDir ../../navegatec-backend/public/client/ --emptyOutDir && npx vite build ./admin --outDir ../../navegatec-backend/public/admin/ --emptyOutDir"
   },
   "repository": {
     "type": "git",
