@@ -22,8 +22,10 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd /home/${{secrets.SSH_USERNAME}}/NavegaTec && git pull
-
+          
           npm run build
+          
+          cd /home/${{secrets.SSH_USERNAME}}/navegatec-backend
 
           # Detener el contenedor (opcional, si es necesario)
           docker-compose down || docker compose down
