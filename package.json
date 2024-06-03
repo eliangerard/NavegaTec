@@ -8,6 +8,7 @@
     "client"
   ],
   "scripts": {
+    "dev": "concurrently \"npm run --prefix ./client dev\" \"npm run --prefix ./admin dev\" \"npm run --prefix ./documentation start\"",
     "test": "test",
     "build": "npx vite build ./client --outDir ../../navegatec-backend/public/client/ --emptyOutDir && npx vite build ./admin --outDir ../../navegatec-backend/public/admin/ --emptyOutDir"
   },
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/eliangerard/NavegaTec/issues"
   },
-  "homepage": "https://github.com/eliangerard/NavegaTec#readme"
+  "homepage": "https://github.com/eliangerard/NavegaTec#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
