@@ -1,0 +1,23 @@
+---
+sidebar_position: 3
+---
+
+# Event
+
+Componente reutilizable que representa la tarjeta principal de evento, se renderiza dentro de un grid.
+
+```jsx
+<Event 
+    {...event}
+    popup={false}
+    i={index}
+    col={column}
+/>
+```
+
+## Props
+
+- `{...event}` - Todas las propiedades relevantes del objeto [Event](/docs/models#event).
+- `popup` - Variable que indica si la información del evento se mostrará como un popup o como un modal de ventana completa.
+- `i` - Variable que representa el índice de renderización del componente, utilizado para decidir si se mostrará con un estilo ancho (2 columnas de ancho) o no.
+- `col` - Variable que indica en qué columna de la página [Events](/docs/Shared/pages/Events) se mostrará.

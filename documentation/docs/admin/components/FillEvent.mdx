@@ -1,0 +1,28 @@
+---
+sidebar_position: 2
+---
+
+# FillEvent
+
+Este componente es utilizado para llenar un evento con la información necesaria para su creación o edición:
+
+```jsx
+<FillEvent 
+    edit 
+    id={id}
+    setStep={setStep}
+    newEvent={newEvent} 
+    setNewEvent={setNewEvent}
+    setEvents={setEvents}
+/>
+```
+
+## Props
+
+- `edit` - Booleano que indica si el evento es nuevo o existente.
+- `id` - Identificador del evento a editar.
+- `setStep` - Función recibida para alterar una variable de estado típicamente utilizada para condicionar la renderización de los pasos del formulario.
+- `newEvent` - Objeto [Event](/docs/models#event) que representa un evento nuevo.
+- `setNewEvent` - Función recibida para alterar una variable de estado que representa un evento nuevo.
+- `setEvents` - Función recibida para alterar una variable de estado que representa la lista de eventos.
+

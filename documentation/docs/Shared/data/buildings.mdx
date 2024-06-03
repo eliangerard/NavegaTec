@@ -1,0 +1,35 @@
+---
+sidebar_position: 4
+---
+
+# Buildings
+
+Objeto que representa un arreglo de edificios, con el objetivo de guardar localmente la información de las locaciónes dentro de la escuela:
+
+```js
+export const buildings = [
+    {
+        id: 1,
+        lat: 28.70822,
+        lng: -106.10572,
+        name: 'Edificio F',
+        subtitle: 'Salones de clases',
+        short: 'F',
+        type: 'building',
+        img: '/buildings/f.jpg'
+    },
+    ...
+    {
+        id: 24,
+        lng: -106.11002,
+        lat: 28.70938,
+        name: 'Domo',
+        subtitle: 'Explanada',
+        short: null,
+        type: 'dome',
+        img: '/buildings/domo.jpg'
+    },
+];
+
+export default buildings;
+```

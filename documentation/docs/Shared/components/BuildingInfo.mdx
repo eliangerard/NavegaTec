@@ -1,0 +1,32 @@
+---
+sidebar_position: 3
+---
+
+# BuildingInfo
+
+Este componente representa al popup o modal de pantalla completa que muestra el desglose de información de un edificio o locación:
+
+```jsx
+export const Building = ({_id}) => {
+
+    const [showInfo, setShowInfo] = useState(false);
+
+    return (
+        <>
+            { showInfo && 
+                <BuildingInfo 
+                    show={showInfo} 
+                    setShow={setShowInfo} 
+                    id={_id} 
+                />
+            }
+        </>
+    )
+}
+```
+
+## Props
+
+- `show` - Variable de estado que indica si la ventana está siendo mostrada.
+- `setShow` - Función para alterar la variable de estado que típicamente controla si la ventana será mostrada.
+- `id` - Variable que indica el id del edifico o locación a mostrar.

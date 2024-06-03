@@ -1,0 +1,34 @@
+---
+sidebar_position: 2
+---
+
+# EventInfo
+
+Este componente representa al popup o modal de pantalla completa que muestra el desglose de información de un evento:
+
+```jsx
+export const Event = ({_id}) => {
+
+    const [showInfo, setShowInfo] = useState(false);
+
+    return (
+        <>
+            { showInfo && 
+                <EventInfo 
+                    popup={false} 
+                    show={showInfo} 
+                    setShow={setShowInfo} 
+                    id={_id} 
+                />
+            }
+        </>
+    )
+}
+```
+
+## Props
+
+- `popup` - Este parámetro decide si la ventana de información se mostrará como un popup absoluto en un contenedor relativo (si es verdadero) o con un posicionamiento *fixed* sobre toda la pantalla (si es falso).
+- `show` - Variable de estado que indica si la ventana está siendo mostrada.
+- `setShow` - Función para alterar la variable de estado que típicamente controla si la ventana será mostrada.
+- `id` - Variable que indica el id del evento a mostrar.

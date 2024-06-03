@@ -1,0 +1,19 @@
+---
+sidebar_position: 4
+---
+
+# PostedEvent
+
+Componente que representa el Evento ya posteado y listo para ser administrado en la página de inicio del frontend administrativo:
+
+```jsx
+<PostedEvent 
+    event={event} 
+    refresh={refresh} 
+/>
+```
+
+## Props
+
+- `event` - Objeto [Event](/docs/models#event) que representa un evento.
+- `refresh` - Función ejecutada una vez completada la eliminación del evento en cuestión, típicamente utilizada para refrescar la lista de eventos.

@@ -1,0 +1,44 @@
+---
+sidebar_position: 3
+---
+
+# DeleteEvent
+
+Este componente es el popup que se activa al intentar eliminar un evento:
+
+```jsx
+function Main() {
+
+  const [show, setShow] = useState(false);
+  const [events, setEvents] = useState([]);
+
+  const refresh = () => {
+    fetch('/events')
+      .then(res => res.json())
+      .then(res => setEvents(res))
+  }
+
+  return (
+    <>
+      { show &&
+        <DeleteEvent 
+          event={event}
+          setShow={setShow} 
+          refresh={refresh}
+        />
+      }
+      <button
+        onClick={() => setShow(true)}
+      >
+        Eliminar
+      </button>
+    </>
+  );
+}
+```
+
+## Props
+
+- `event` - Objeto [Event](/docs/models#event) que representa un evento.
+- `setShow` - Función recibida para alterar una variable de estado típicamente utilizada para condicionar la renderización del popup.
+- `refresh` - Función ejecutada una vez completada la eliminación del evento en cuestión, típicamente utilizada para refrescar la lista de eventos.

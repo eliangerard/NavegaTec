@@ -1,0 +1,30 @@
+---
+sidebar_position: 1
+---
+
+# UserProvider
+
+Este componente representa al *provider* del objeto Usuario, con el cual se puede consultar si este ha iniciado sesión o no.
+
+```jsx
+function App() {
+    return (
+        <UserProvider>
+            <Routes>
+                <Route path='/redirect/*' element={<Redirect />} />
+                <Route path='/*' element={<VerifySession />} />
+            </Routes>
+        </UserProvider>
+    )
+}
+```
+
+## UserContext
+Este *provider* provee el siguiente objeto:
+```jsx
+const UserContext = createContext({logged: false});
+```
+Para utilizar este contexto dentro de cualquier componente hay que llamarlo de la siguiente manera:
+```jsx
+const { user, setUser } = useContext(UserContext);
+```

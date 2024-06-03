@@ -1,0 +1,25 @@
+---
+sidebar_position: 1
+---
+
+# Icons
+
+Esta carpeta dentro de la estructura del directorio UI representa todos los íconos utilizados en todo el frontend, accesibles a través del componente **Icon**
+
+## Icon
+Este componente envuelve todos los íconos de la aplicación para poder mostrar dinámicamente el ícono necesario:
+
+```jsx
+<Icon
+  className="h-12 w-12 ..."
+  style={ /* Normal style */}
+  building={event.where}
+  fontSize="text-xl"
+/>
+```
+
+### Props
+- `className` - Clases heredadas al ícono que corresponda.
+- `style` - Estilos normales heredados al ícono que corresponda.
+- `building` - Objeto Building que típicamente resuelve a la propiedad 'where' parte del objeto [Event](/docs/models#event), es esta la que determinará el ícono a mostrar.
+- `fontSize` - Parámetro que cambia el tamaño de la fuente de íconos en los que aplique.

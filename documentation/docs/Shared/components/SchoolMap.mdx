@@ -1,0 +1,24 @@
+---
+sidebar_position: 1
+---
+
+# SchoolMap
+
+Este componente representa al mapa escolar:
+
+```jsx
+<SchoolMap
+    disabled={false}
+    events={events}
+    display={false}
+>
+    {children}
+</SchoolMap>
+```
+
+## Props
+
+- `disabled` - Este parámetro deshabilita la interacción con el mapa, además de volver los íconos blanco y negro.
+- `eventes` - Este recibe los eventos a mostrar dentro del mapa.
+- `display` - Este parámetro si es verdadero mostrará todo el contenido del mapa, si es falso, únicamente renderizará el mapa sin eventos o ubicaciones.
+- `children` - Componentes que se renderizarán dentro del mapa.
