@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
-import { Login } from "../components/Login"
+import { Login } from "../pages/Login"
 import { Add } from "../pages/Add"
-import { Events } from "../../../shared/pages/Events"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserProvider"
 import { Home } from "../pages/Home"
