@@ -13,7 +13,7 @@ export default function App() {
 	}, []);
 
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={import.meta.env.VITE_PATH_BASENAME}>
 			<Routes>
 				<Route path='/' element={<SchoolMap events={events}/>} />
 				<Route path='/events' element={<Events events={events}/>} />
