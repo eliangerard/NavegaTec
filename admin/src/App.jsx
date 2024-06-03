@@ -6,7 +6,7 @@ import { VerifySession } from './middlewares/VerifySession'
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={import.meta.env.VITE_PATH_BASENAME}>
 			<UserProvider>
 				<Routes>
 					<Route path='/redirect/*' element={<Redirect />} />
