@@ -37,7 +37,7 @@ export const Events = () => {
             </header>
             <div className='relative w-full h-full flex flex-col items-center relative'>
                 <Link to="/" className='fixed bottom-4 md:left-4 md:top-1/2 w-12 z-20'>
-                    <img src="/mapIcon.svg" alt="" />
+                    <img src="./public/mapIcon.svg" alt="" />
                 </Link>
                 <div className='max-w-screen-xl w-full relative min-h-full h-fit flex justify-center py-4 md:px-16'>
                     {loading ?
