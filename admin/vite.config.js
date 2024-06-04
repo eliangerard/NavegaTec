@@ -10,5 +10,11 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()]
     }
+  }, 
+  server: {
+    host: true,
+     watch: {
+       usePolling: true
+     }
   }
 })
