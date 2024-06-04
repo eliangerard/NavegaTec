@@ -75,7 +75,7 @@ export const BuildingInfo = ({ show, id, setShow }) => {
                             </div>
                             <div className='w-full h-fit grid md:grid-cols-2 md:gap-4 md:mt-4'>
                                 <div className='bg-white h-fit p-1.5 rounded-2xl m-4 md:m-0 border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
-                                    {building?.img ? <img className='rounded-xl h-[300px] md:h-[400px] w-full object-cover' src={`navegatec/public/${building.img}`} alt="" />
+                                    {building?.img ? <img className='rounded-xl h-[300px] md:h-[400px] w-full object-cover' src={`./public${building.img}`} alt="" />
                                         : <div className='w-full h-[300px] flex items-center justify-center'>
                                             <SquareLoader color='#000' size={50} loading={loading} />
                                         </div>}
