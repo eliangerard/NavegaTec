@@ -76,7 +76,7 @@ export const FillEvent = ({ edit, id, setStep, newEvent, setNewEvent, setEvents 
             body: JSON.stringify(newEvent)
         }).then(res => res.json()).then(data => {
             console.log(data);
-            if(edit)
+            if (edit)
                 return navigate('/');
             setNewEvent(data);
             if (!newEvent.where)
@@ -89,7 +89,12 @@ export const FillEvent = ({ edit, id, setStep, newEvent, setNewEvent, setEvents 
     return (
         <>
             <div className="absolute top-8 left-8">
-                <BackButton onClick={() => setStep(1)} />
+                <BackButton onClick={() => {
+                    if(edit)
+                        return navigate('/');
+                    
+                    setStep(1)
+                }} />
             </div>
             <h1 className="text-5xl text-center font-display font-bold">Aviso</h1>
             <p>¿Qué mostrará tu anuncio?</p>
