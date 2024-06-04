@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import eventsIcon from '../assets/annIcon.svg';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 import buildings from '../data/buildings';
 import { Icon } from '../ui/icons/Icon';
@@ -147,7 +147,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                         </Marker>
                     }
                     {display && <Link to="/events" className='absolute right-0 w-12 m-4'>
-                        <img src="/annIcon.svg" alt="" />
+                        <img src={eventsIcon} alt="" />
                     </Link>}
                     {display && <ZoomControl />}
                     {display && <div className='absolute bottom-4 left-4 border-2 border-zinc-300 bg-white rounded-lg h-10 flex justify-around px-3 items-center'>

@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { SchoolMap } from "../../../shared/components/SchoolMap"
 import { UserContext } from "../context/UserProvider";
 import msLogo from '../assets/ms.svg'
-import { useParams } from "react-router-dom";
+import mapBg from '../assets/map-bg.png'
+import icon from '../assets/icon.png'
 
 export const Login = () => {
 
@@ -18,8 +19,8 @@ export const Login = () => {
                 <div className='animate-fade fixed top-0 left-0 w-full h-full bg-black/25 z-20'>
                     <div className='flex items-center overflow-hidden border-4 nt-shadow min-h-fit min-w-fit rounded-lg bg-white border-black  absolute z-20 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
                         <div className="relative flex items-center justify-center h-[400px] w-[450px]">
-                            <img className="absolute h-full w-full w-fit object-cover" src="/map-bg.png" alt="" />
-                            <img className="absolute p-6 z-20" src="/icon.png" alt="" />
+                            <img className="absolute h-full w-full w-fit object-cover" src={mapBg} alt="" />
+                            <img className="absolute p-6 z-20" src={icon} alt="" />
                         </div>
                         <div className="p-12 w-full flex flex-col items-center">
                             <div className="w-[350px]">
