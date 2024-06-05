@@ -1,0 +1,41 @@
+# Rutas
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/auth/token
+La ruta token del apartado de autenticación se utiliza con el fin de intercambiar un código obtenido del proveedor de microsoft por medio del `code_flow` por una serie de tokens, que representan la sesión de un usuario.
+
+Estos tokens le permitirán al usuario acceder a las rutas protegidas.
+
+### URL Params
+- `code` - El código proporcionado por el proveedor.
+- `redirectUri` - La dirección a la que el proveedor redirigirá una vez completado el inicio de sesión, si no está previamente registrado en el panel de Microsoft Entra provocará errores.
+
+---
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/auth/refresh
+El objetivo de esta ruta es que puedas obtener tokens de acceso con vigencia renovada a través del `refresh token`, que según el flujo establecido se guarda en el `localStorage` con la etiqueta `refresh`.
+
+### Headers
+- `Authorization` - Si bien esta no es una ruta protegida, el token de `refresh` se recibe por el header.
+ 
+---
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/auth/verify
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta es una ruta de pruebas para el `middleware` encargado de verificar la validez de los tokens transportados en cada ruta protegida, por consecuencia, también sirve para probar la validez de los tokens, aunque no se recomienda utilizarla con ese propósito ya que las rutas protegidas ya lo hacen por sí mismas.
+
+---
+
+## <span style={{color: "#f8e47e"}}>POST</span> /api/auth/allow
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta ruta se utiliza para permitir el acceso a la aplicación administrativa a un nuevo usuario a través de su email, los correos son evaluados en minúsculas para facilitar el trabajo ya que estos no disciernen entre mayúsculas o minúsculas, aunque este proceso está automatizado en el API, si en la base de datos se agregan mayúsculas los procesos de verificación darán falsos negativos.
+
+### Body
+```js
+{
+    "email" : "l20550XXX@chihuahua2.tecnm.mx"
+}
+```

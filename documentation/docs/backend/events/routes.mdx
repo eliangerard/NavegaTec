@@ -1,0 +1,72 @@
+# Rutas
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/events/
+Esta ruta se utiliza para obtener todos los eventos **activos** de la base de datos, un evento activo es aquel que en el panel administrativo se encuentra activado y, en caso de haber sido especificado, la fecha actual se encuentra dentro del rango de fecha de activación.
+
+---
+ 
+## <span style={{color: "#f8e47e"}}>POST</span> /api/events/
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta ruta se utiliza para añadir un nuevo evento a la base de datos.
+
+### Body
+
+Recibe un objeto [Event](/docs/models#event).
+
+---
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/events/all
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta ruta se utiliza para obtener **todos** los eventos de la base de datos, sin excepciones.
+
+---
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/events/:id
+Esta ruta se utiliza para obtener un evento por su `_id` de Mongo.
+
+### URL Params
+
+- `id` - El id del evento a obtener
+
+---
+
+## <span style={{color: "#ec9489"}}>DELETE</span> /api/events/:id
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta ruta se utiliza para eliminar un evento por su `_id` de Mongo.
+
+### URL Params
+
+- `id` - El id del evento a eliminar
+
+---
+
+## <span style={{color: "#c0a8e1"}}>PATCH</span> /api/events/id
+:::warning
+Esta es una ruta **protegida**, para acceder a este recurso es **necesario** adjuntar en cada petición el token de acceso obtenido en [token](/docs/backend/auth/routes#get-apiauthtoken) o en [refresh](/docs/backend/auth/routes#get-apiauthrefresh) y que este sea vigente.
+:::
+Esta ruta se utiliza para actualizar los datos de un evento por su `_id` de Mongo.
+
+### URL Params
+
+- `id` - El id del evento a obtener
+
+### Body
+
+Recibe un objeto [Event](/docs/models#event), se pueden omitir las propiedades que no sufrirán cambios.
+
+---
+
+## <span style={{color: "#62c78c"}}>GET</span> /api/events/building/:id
+Esta ruta se utiliza para obtener los eventos que habrán en una locación por el `_id` de la misma en Mongo, para consultar más información de las locaciones, pulsa [aquí](/docs/frontend/Shared/data/buildings).
+
+### URL Params
+
+- `id` - El id de la locación cuyos eventos se obtendrán
+
+---
