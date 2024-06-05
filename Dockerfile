@@ -19,6 +19,12 @@ RUN mkdir /app/client
 # Copy the package.json and package-lock.json files from the local directory to the "admin" directory inside the container
 COPY ./client/package*.json /app/client/
 
+# Create a directory called "admin" inside the container
+RUN mkdir /app/documentation
+
+# Copy the package.json and package-lock.json files from the local directory to the "admin" directory inside the container
+COPY ./documentation/package*.json /app/documentation/
+
 # Install the dependencies
 RUN npm install
 
