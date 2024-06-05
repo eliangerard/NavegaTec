@@ -143,7 +143,7 @@ export const SchoolMap = ({ children, disabled, events = [], moving, display = t
                             anchor={location}
                             color='blue'
                         >
-                            <div className='bg-blue-400 border-2 border-black nt-shadow rounded-full h-4 w-4'></div>
+                            <div className='bg-blue-400 border-2 border-black nt-shadow-sm rounded-full h-4 w-4'></div>
                         </Marker>
                     }
                     {display && <Link to="/events" className='absolute right-0 w-12 m-4'>
