@@ -2,24 +2,24 @@
     "name": "NavegaTec",
     "short_name": "NavegaTec",
     "description": "Una increíble aplicación web",
-    "start_url": "/",
+    "start_url": "/navegatec/client/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "/icon.png",
+            "src": "./icon.png",
             "sizes": "any",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "/icon.png",
+            "src": "./icon.png",
             "sizes": "any",
             "type": "image/png"
         },
         {
-            "src": "/icon.png",
+            "src": "./icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
