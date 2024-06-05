@@ -9,7 +9,7 @@ function App() {
 		<BrowserRouter basename={import.meta.env.VITE_PATH_BASENAME}>
 			<UserProvider>
 				<Routes>
-					<Route path='/redirect/*' element={<Redirect />} />
+					<Route path='/redirect' element={<Redirect />} />
 					<Route path='/*' element={<VerifySession />} />
 				</Routes>
 			</UserProvider>
