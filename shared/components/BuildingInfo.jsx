@@ -80,9 +80,13 @@ export const BuildingInfo = ({ show, id, setShow }) => {
                                             <SquareLoader color='#000' size={50} loading={loading} />
                                         </div>}
                                 </div>
-                                <div className='bg-white w-full md:h-[415px] md:py-4 px-4 rounded-2xl md:border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'>
+                                <div className='bg-white w-full md:h-[415px] md:py-4 px-4 rounded-2xl md:border-2 border-black shadow-none md:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-y-auto'>
                                     <h4 className='font-display font-semibold text-2xl my-2'>Descripción</h4>
-                                    <p>En este edificio suelen dar mayormente clases de ISC y IDI.</p>
+                                    {
+                                        building?.description.split('\n').map((p, i) => (
+                                            <p key={`desc#${i}`}>{p}</p>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className='md:border-0 shadow-none s:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-black md:rounded-2xl mt-4 min-h-18 p-0'>

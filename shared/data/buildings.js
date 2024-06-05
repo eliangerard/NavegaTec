@@ -8,6 +8,7 @@ export const buildings = [
         short: 'F',
         type: 'building',
         img: '/buildings/f.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados. \nAquí suelen impartirse materias de ISC, e Informática.',
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export const buildings = [
         short: 'D',
         type: 'building',
         img: '/buildings/d.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados.\nAquí suelen impartirse materias de ISC, IDI e Informática.',
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ export const buildings = [
         short: 'P',
         type: 'building',
         img: '/buildings/p.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados.\nSe encuentran los profesores de las carreras de Sistemas y ???. Aquí puedes encontrar los jefes de departamento de dichas carreras.',
     },
     {
         id: 4,
@@ -38,6 +41,7 @@ export const buildings = [
         short: 'E',
         type: 'building',
         img: '/buildings/e.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados.\nAquí suelen impartirse materias de IGE, ISC, IDI e Informática.',
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ export const buildings = [
         short: 'B',
         type: 'building',
         img: '/buildings/b.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados.\nAquí suelen impartirse materias de IGE y IDI.',
     },
     {
         id: 6,
@@ -58,6 +63,7 @@ export const buildings = [
         short: 'G',
         type: 'building',
         img: '/buildings/g.jpg'
+        , description: 'Horario de 7:00am a 8:00pm Lunes a Viernes.\nEl Horario varía los sábados.\nAquí suelen impartirse materias de Industrial.',
     },
     {
         id: 7,
@@ -68,6 +74,7 @@ export const buildings = [
         short: 'S',
         type: 'building',
         img: '/buildings/cc.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nAquí se encuentran las computadoras para uso del alumnado y profesores, los salones están reservados por horario para ciertas clases, puedes usar las computadoras sí están libres y agendar uso de los salones con el encargado.',
     },
     {
         id: 8,
@@ -78,6 +85,7 @@ export const buildings = [
         short: 'CI',
         type: 'building',
         img: '/buildings/ci.jpg'
+        , description: 'Horario de 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nCentro de Información (Biblioteca) cuenta con el jefe de departamento de IGE y una gran colección de libros. Tiene un buen ancho de banda de internet para poder buscar información en la red.',
     },
     {
         id: 9,
@@ -88,6 +96,7 @@ export const buildings = [
         short: 'LM',
         type: 'building',
         img: '/buildings/lm.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes. \nEl Horario varía los sábados.\nAquí se imparten materias de Arquitectura y Diseño.'
     },
     {
         id: 10,
@@ -98,6 +107,7 @@ export const buildings = [
         short: 'T',
         type: 'building',
         img: '/buildings/t.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nEn este edificio se imparten materias de Arquitectura.',
     },
     {
         id: 11,
@@ -108,6 +118,7 @@ export const buildings = [
         short: 'O',
         type: 'building',
         img: '/buildings/o.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nEn este edificio se imparten materias de varias carreras.',
     },
     {
         id: 12,
@@ -118,6 +129,7 @@ export const buildings = [
         short: 'M',
         type: 'building',
         img: '/buildings/m.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nEn este edificio se imparten materias de Arquitectura.',
     },
     {
         id: 13,
@@ -128,6 +140,7 @@ export const buildings = [
         short: 'R',
         type: 'building',
         img: '/buildings/r.jpg'
+        , description: 'Horario 7:30am a 8:30pm Lunes a Viernes.\nEl Horario varía los sábados.\nEdificio de Posgrado, aquí se tramitan y asesoran las residencias profesionales, servicio social, maestrías y doctorados.',
     },
     {
         id: 14,
@@ -137,7 +150,8 @@ export const buildings = [
         subtitle: 'Salones de clases',
         short: 'C',
         type: 'building',
-        img: '/buildings/c.jpg'
+        img: '/buildings/c.jpg', 
+        description: 'Entrada Oeste:\nCentro de Idiomas\nAquí se tramitan las clases de Inglés.\nHorario variable\n - \nEntrada Sur:\nProfesores de Ciencias Básicas\nHorario variable\n - \nEntrada Este:\nEnfermería y Sala de profesores.\nHorario variable\n - \nEntrada Norte:\nComunicación y difusión.\nHorario variable',
     },
     {
         id: 15,
@@ -146,7 +160,7 @@ export const buildings = [
         name: 'Campo de Béisbol',
         short: null,
         type: 'baseball',
-
+        description: 'Cancha de Beisbol del instituto, preguntar en el gimnasio por información de horarios y uso.',
     },
     {
         id: 16,
@@ -155,7 +169,7 @@ export const buildings = [
         name: 'Campo de Fútbol',
         short: null,
         type: 'soccer',
-
+        description: 'Uso libre a menos que esté reservada para partidos de la institución, puedes preguntar en el gimnasio por más información.',
     },
     {
         id: 17,
@@ -164,7 +178,8 @@ export const buildings = [
         name: 'Cancha de Fútbol Rápido',
         short: null,
         type: 'soccer-7',
-        img: '/buildings/fr.jpg'
+        img: '/buildings/fr.jpg', 
+        description: 'Uso libre a menos que esté reservada para partidos de la institución, puedes preguntar en el gimnasio por más información.',
     },
     {
         id: 18,
@@ -173,6 +188,7 @@ export const buildings = [
         name: 'Gimnasio',
         short: null,
         type: 'gym',
+        description: 'Uso libre a menos que esté reservada, puedes preguntar en el la administración por más información.\nAquí se practican las extraescolares de Taekwondo, Baile y Volleyball.\nHay Baños y Fuente de Agua.\nEl horario de atención de la administración es de -- a 3:00pm',
     },
     {
         id: 19,
@@ -183,6 +199,8 @@ export const buildings = [
         short: null,
         type: 'administrative',
         img: '/buildings/dir.jpg'
+        , description: `Horario 7:30am a 5:00pm Lunes a Viernes.\nEl Horario varía los sábados.
+        Aquí se pueden realizar tramites generales de la institución y resolver dudas referentes a materias y profesores.`,
     },
     {
         id: 20,
@@ -192,6 +210,8 @@ export const buildings = [
         short: null,
         type: 'coffee',
         img: '/buildings/cafe1.jpg'
+        , description: `Horario de 8:00am a 4:00pm Lunes a Viernes.\nEl Horario varía los sábados.
+        Hay alimentos de todo tipo, puedes tramitar una beca alimentaria en el Edificio Administrativo.`,
     },
     {
         id: 21,
@@ -201,6 +221,8 @@ export const buildings = [
         short: null,
         type: 'coffee',
         img: '/buildings/cafe2.jpg'
+        , description: `Horario de 8:00am a 4:00pm Lunes a Viernes.\nEl Horario varía los sábados.
+        Hay alimentos de todo tipo, puedes tramitar una beca alimentaria en el Edificio Administrativo.`,
     },
     {
         id: 22,
@@ -211,14 +233,16 @@ export const buildings = [
         short: null,
         type: 'explanade',
         img: '/buildings/ex.jpg'
+        , description: `Aquí se realizan eventos de la institución, como conciertos, exposiciones y eventos culturales.`,
     },
     {
         id: 23,
         lng: -106.106393,
-        lat: 28.707475, 
+        lat: 28.707475,
         name: 'Estatua',
         short: null,
         type: 'statue',
+        description: `El bisonte es una estatua que conmemoró 30 años de la institución, en su placa vienen los fundadores. `,
     },
     {
         id: 24,
@@ -228,7 +252,8 @@ export const buildings = [
         subtitle: 'Explanada',
         short: null,
         type: 'dome',
-        img: '/buildings/domo.jpg'
+        img: '/buildings/domo.jpg',
+        description: `La explanada de esta parte del plantel está cubierta por un domo muy cool. 😎🤙`,
     },
 ];
 
